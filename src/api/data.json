@@ -1,0 +1,23 @@
+{
+  "projects": [
+    {
+      "id": 0,
+      "img": "https://labs.valdargent.com/images/Articles/evenements/projets/projets_realises/img3.jpg",
+      "alt": "Une photo de la platerforme de macro-photographie",
+      "title": "Plateforme macro-photographie",
+      "description": "Une plateforme contrôlée par micro ordinateur servant à prendre des matrices de photographie de minéraux."
+    }, {
+      "id": 1,
+      "img": "https://labs.valdargent.com/images/Articles/evenements/projets/projets_realises/img3.jpg",
+      "alt": "Une photo de la platerforme de macro-photographie",
+      "title": "Plateforme macro-photographie",
+      "description": "Une plateforme contrôlée par micro ordinateur servant à prendre des matrices de photographie de minéraux."
+    }, {
+      "id": 2,
+      "img": "https://labs.valdargent.com/images/Articles/evenements/projets/projets_realises/img3.jpg",
+      "alt": "Une photo de la platerforme de macro-photographie",
+      "title": "Plateforme macro-photographie",
+      "description": "Une plateforme contrôlée par micro ordinateur servant à prendre des matrices de photographie de minéraux."
+    }
+  ]
+}
