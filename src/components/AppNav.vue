@@ -19,6 +19,9 @@
         <router-link class="nav-link" to="/project" @click.native="toggle()">Projets</router-link>
       </li>
       <li class="nav-list-item">
+        <a class="nav-link" href="mailto:victor.mendele68@gmail.com" @click.native="toggle()">CV</a>
+      </li>
+      <li class="nav-list-item">
         <a class="nav-link" href="mailto:victor.mendele68@gmail.com" @click.native="toggle()">Contact</a>
       </li>
     </ul>
@@ -113,6 +116,28 @@ export default {
   @media screen and (min-width: 900px) {
     .nav-active {
       padding: 32px 64px;
+    }
+
+    .nav-link {
+      padding-bottom: 10px;
+      position: relative;
+    }
+
+    .nav-link::before {
+      content: " ";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 100%;
+      height: 3px;
+      display: block;
+      background-color: #fff;
+      transition: right .2s;
+    }
+
+    .nav-link:hover::before {
+
+      right: 0;
     }
   }
 

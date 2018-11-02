@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { cpus } from 'os';
+import app from '@/main'
+
 
 const baseConfig = {
   baseURL: 'http://localhost/wordpress/wp-json/wp/v2/',
@@ -7,6 +8,16 @@ const baseConfig = {
 }
 
 let localProjects = null
+
+axios.interceptors.request.use (config => {
+  app.$Progress.start()
+  return config
+})
+
+axios.interceptors.response.use(response => {
+  app.$Progress.finish()
+  return response
+})
 
 const getAllProjects = () => {
   return new Promise((resolve, reject) => {

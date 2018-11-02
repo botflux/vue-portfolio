@@ -40,6 +40,7 @@ export default {
 
   .project {
     padding-top: 200px;
+    padding-bottom: 200px;
     display: grid;
     grid-row-gap: 40px;
   }

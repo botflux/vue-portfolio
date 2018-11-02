@@ -35,6 +35,7 @@ export default {
 <style scoped>
   main {
     padding-top: 90px;
+    padding-bottom: 200px;
   }
 
   .cover-img {

@@ -103,6 +103,7 @@ export default {
   }
   .about {
     padding-top: 200px;
+    padding-bottom: 200px;
   }
 
   .about-content {

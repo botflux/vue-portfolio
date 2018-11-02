@@ -11,7 +11,7 @@ const _404 = () => import('../components/404.vue')
 
 Vue.use(Router)
 
-export default new Router({
+const router =  new Router({
   routes: [
     {
       path: '/',
@@ -27,7 +27,7 @@ export default new Router({
         header: AppHeader,
         default: About,
         footer: AppFooter
-      }
+      },
     }, {
       path: '/project',
       name: 'Project',
@@ -52,5 +52,8 @@ export default new Router({
         default: _404
       }
     }
-  ]
+  ],
 })
+
+
+export default router
