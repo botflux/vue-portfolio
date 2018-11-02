@@ -2,7 +2,7 @@ import axios from 'axios'
 import app from '@/main'
 
 const baseConfig = {
-  baseURL: 'http://api.victormendele.fr/wp-json/wp/v2/',
+  baseURL: 'https://api.victormendele.fr/wp-json/wp/v2/',
   method: 'get',
   crossDomain: true
 }

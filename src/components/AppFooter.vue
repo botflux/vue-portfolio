@@ -1,15 +1,15 @@
 <template>
   <footer class="app-footer">
-    <a href="https://www.pinterest.fr/mendelevictor/" target="_blank">
+    <a href="https://www.pinterest.fr/mendelevictor/" rel="noopener" target="_blank">
       <font-awesome-icon :icon="['fab', 'pinterest']" class="footer-icon"></font-awesome-icon>
     </a>
-    <a href="https://codepen.io/botflux/" target="_blank">
+    <a href="https://codepen.io/botflux/" rel="noopener" target="_blank">
       <font-awesome-icon :icon="['fab', 'codepen']" class="footer-icon"></font-awesome-icon>
     </a>
-    <a href="https://github.com/botflux" target="_blank">
+    <a href="https://github.com/botflux" rel="noopener" target="_blank">
       <font-awesome-icon :icon="['fab', 'github']" class="footer-icon"></font-awesome-icon>
     </a>
-    <a href="https://www.linkedin.com/in/victor-mendele-698517154/" target="_blank">
+    <a href="https://www.linkedin.com/in/victor-mendele-698517154/" rel="noopener" target="_blank">
       <font-awesome-icon :icon="['fab', 'linkedin']" class="footer-icon"></font-awesome-icon>
     </a>
   </footer>

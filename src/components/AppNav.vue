@@ -19,7 +19,7 @@
         <router-link class="nav-link" to="/project" @click.native="toggle()">Projets</router-link>
       </li>
       <li class="nav-list-item">
-        <a class="nav-link" target="_blank" href="https://www.dropbox.com/s/b2aqhluhkwzl69b/CV.pdf?dl=0" @click.native="toggle()">CV</a>
+        <a class="nav-link" target="_blank" rel="noopener" href="https://www.dropbox.com/s/b2aqhluhkwzl69b/CV.pdf?dl=0" @click.native="toggle()">CV</a>
       </li>
       <li class="nav-list-item">
         <a class="nav-link" href="mailto:victor.mendele68@gmail.com" @click.native="toggle()">Contact</a>
