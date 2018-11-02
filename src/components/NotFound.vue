@@ -2,13 +2,13 @@
   <section>
     <h1>404</h1>
     <p>Ooooops, il n'y a rien à voir ici.</p>
-    <router-link to="/" class="btn">Acceuil</router-link>
+    <router-link :to="{name: 'LandingPage'}" class="btn">Acceuil</router-link>
   </section>
 </template>
 
 <script>
 export default {
-  name: '404'
+  name: 'NotFound'
 }
 </script>
 

@@ -7,11 +7,12 @@ const LandingPage = () => import('../components/LandingPage.vue')
 const About = () => import('../components/About.vue')
 const Project = () => import('../components/Project.vue')
 const ProjectPage = () => import('../components/ProjectPage.vue')
-const _404 = () => import('../components/404.vue')
+const NotFound = () => import('../components/NotFound.vue')
 
 Vue.use(Router)
 
 const router =  new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -43,14 +44,27 @@ const router =  new Router({
         header: AppHeader,
         default: ProjectPage,
         footer: AppFooter
+      },
+      beforeEnter: (to, from, next) => {
+        import('@/api/project.js').then(projectApi => {
+          projectApi.projectExists(to.params.projectId).then(() => {
+            next()
+          }).catch(() => {
+            next({ name: 'NotFound' })
+          })
+        })
+      }
+    }, {
+      path: '/error',
+      name: 'NotFound',
+      components: {
+        header: AppHeader,
+        default: NotFound,
+        footer: AppFooter
       }
     }, {
       path: '*',
-      name: '404',
-      components: {
-        header: AppHeader,
-        default: _404
-      }
+      redirect: '/error'
     }
   ],
 })

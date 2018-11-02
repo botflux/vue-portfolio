@@ -1,10 +1,10 @@
 import axios from 'axios'
 import app from '@/main'
 
-
 const baseConfig = {
-  baseURL: 'http://localhost/wordpress/wp-json/wp/v2/',
-  method: 'get'
+  baseURL: 'http://api.victormendele.fr/wp-json/wp/v2/',
+  method: 'get',
+  crossDomain: true
 }
 
 let localProjects = null
@@ -34,7 +34,9 @@ const getAllProjects = () => {
         localProjects = [...localProjects, ...[o]]
       }
       resolve(localProjects)
-    }).catch(error => {})
+    }).catch(error => {
+      reject(error)
+    })
   })
 }
 
@@ -58,6 +60,18 @@ const getProject = (id) => {
   })
 }
 
+const projectExists = (id) => {
+  return new Promise((resolve, reject) => {
+    axios.request({...baseConfig, ...{
+      url: `posts/${id}`
+    }}).then(response => {
+      resolve(true)
+    }).catch(e => {
+      reject(false)
+    })
+  })
+}
+
 const apiProjectToProject = (apiReponse) => {
   let o = {}
   o.id = apiReponse.id
@@ -69,4 +83,4 @@ const apiProjectToProject = (apiReponse) => {
   return o
 }
 
-export { getAllProjects, getProject }
+export { getAllProjects, getProject, projectExists }
