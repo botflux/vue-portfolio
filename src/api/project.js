@@ -1,45 +1,61 @@
 import axios from 'axios'
+import { cpus } from 'os';
 
 const baseConfig = {
   baseURL: 'http://localhost/wordpress/wp-json/wp/v2/',
   method: 'get'
 }
 
-axios.request({...baseConfig, ...{
-  url: 'posts/5'
-}}).then(response => {
-  console.log(response.data)
-}).catch(error => {
-
-}).then (_ => {
-
-})
+let localProjects = null
 
 const getAllProjects = () => {
-  return [{
-    id: 0,
-    img: 'https://labs.valdargent.com/images/Articles/evenements/projets/projets_realises/img3.jpg',
-    alt: 'Une photo de la platerforme de macro-photographie',
-    title: 'Plateforme macro-photographie 0',
-    description: 'Une plateforme contrôlée par micro ordinateur servant à prendre des matrices de photographie de minéraux.',
-    body: `<p>Blaaaa bla bla <strong>aaaaa</strong></p><img src="https://labs.valdargent.com/images/Articles/evenements/projets/projets_realises/img3.jpg">`
-  }, {
-    id: 1,
-    img: 'https://labs.valdargent.com/images/Articles/evenements/projets/projets_realises/img3.jpg',
-    alt: 'Une photo de la platerforme de macro-photographie',
-    title: 'Plateforme macro-photographie 1',
-    description: 'Une plateforme contrôlée par micro ordinateur servant à prendre des matrices de photographie de minéraux.'
-  }, {
-    id: 2,
-    img: 'https://labs.valdargent.com/images/Articles/evenements/projets/projets_realises/img3.jpg',
-    alt: 'Une photo de la platerforme de macro-photographie',
-    title: 'Plateforme macro-photographie 2',
-    description: 'Une plateforme contrôlée par micro ordinateur servant à prendre des matrices de photographie de minéraux.'
-  }]
+  return new Promise((resolve, reject) => {
+    axios.request({...baseConfig, ...{
+      url: 'posts/'
+    }}).then (response => {
+      let tempProjects = response.data
+      localProjects = []
+      for (let i in tempProjects) {
+
+        let current = tempProjects[i]
+        let o = apiProjectToProject(current)
+
+        localProjects = [...localProjects, ...[o]]
+      }
+      resolve(localProjects)
+    }).catch(error => {})
+  })
 }
 
 const getProject = (id) => {
-  return getAllProjects().find(project => project.id == id)
+  return new Promise((resolve, reject) => {
+    let project = null
+    getAllProjects().then(response => {
+      project = response.find(project => project.id == id)
+    })
+    if (project !== null) {
+      resolve(project)
+    } else {
+      axios.request({...baseConfig, ...{
+        url: `posts/${id}`
+      }}).then(response => {
+        resolve(apiProjectToProject(response.data))
+      }).catch(e => {
+        reject(e)
+      })
+    }
+  })
+}
+
+const apiProjectToProject = (apiReponse) => {
+  let o = {}
+  o.id = apiReponse.id
+  o.title = apiReponse.title.rendered
+  o.description = apiReponse.excerpt.rendered.replace(/<(?:.|\n)*?>/gm, '')
+  o.body = apiReponse.content.rendered
+  o.alt = apiReponse.better_featured_image.alt_text
+  o.img = apiReponse.better_featured_image.source_url
+  return o
 }
 
 export { getAllProjects, getProject }

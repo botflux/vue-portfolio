@@ -21,10 +21,14 @@ const getters = {
 
 const actions = {
   findAllProjects: ({ commit }) => {
-    commit('setProjects', projectApi.getAllProjects())
+    projectApi.getAllProjects().then(projects => {
+      commit('setProjects', projects)
+    })
   },
   findProject: ({ commit }, options) => {
-    commit('setProject', projectApi.getProject(options.id))
+    projectApi.getProject(options.id).then(project => {
+      commit('setProject', project)
+    })
   }
 }
 
