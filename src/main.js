@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import store from './store'
 import VueProgressBar from 'vue-progressbar'
+import './web-font-loader'
 
 const options = {
   color: '#0000ff',
