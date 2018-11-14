@@ -26,7 +26,7 @@ const actions = {
     })
   },
   findProject: ({ commit }, options) => {
-    projectApi.getProject(options.id).then(project => {
+    projectApi.getProject(options.slug).then(project => {
       commit('setProject', project)
     })
   }

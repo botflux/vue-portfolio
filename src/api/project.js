@@ -22,7 +22,7 @@ axios.interceptors.response.use(response => {
 const getAllProjects = () => {
   return new Promise((resolve, reject) => {
     axios.request({...baseConfig, ...{
-      url: 'posts/'
+      url: 'posts'
     }}).then (response => {
       let tempProjects = response.data
       localProjects = []
@@ -40,19 +40,20 @@ const getAllProjects = () => {
   })
 }
 
-const getProject = (id) => {
+const getProject = (slug) => {
   return new Promise((resolve, reject) => {
-    let project = null
+    let project = null/*
     getAllProjects().then(response => {
-      project = response.find(project => project.id == id)
-    })
+      project = response.find(project => project.slug == slug)
+    })*/
     if (project !== null) {
       resolve(project)
     } else {
-      axios.request({...baseConfig, ...{
-        url: `posts/${id}`
-      }}).then(response => {
-        resolve(apiProjectToProject(response.data))
+      let config = {...baseConfig, ...{
+        url: `posts?slug=${slug}`,
+      }}
+      axios.request(config).then(response => {
+        resolve(apiProjectToProject(response.data.find(p => p !== undefined)))
       }).catch(e => {
         reject(e)
       })
@@ -60,10 +61,10 @@ const getProject = (id) => {
   })
 }
 
-const projectExists = (id) => {
+const projectExists = (slug) => {
   return new Promise((resolve, reject) => {
     axios.request({...baseConfig, ...{
-      url: `posts/${id}`
+      url: `posts?slug=${slug}`
     }}).then(response => {
       resolve(true)
     }).catch(e => {
@@ -80,6 +81,7 @@ const apiProjectToProject = (apiReponse) => {
   o.body = apiReponse.content.rendered
   o.alt = apiReponse.better_featured_image.alt_text
   o.img = apiReponse.better_featured_image.source_url
+  o.slug = apiReponse.slug
   return o
 }
 

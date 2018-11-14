@@ -20,6 +20,14 @@ const router =  new Router({
       components: {
         header: AppHeader,
         default: LandingPage
+      },
+      meta: {
+        metaTags: [
+          {
+            name: 'Description',
+            content: `Passionné par le développement depuis quelques années, j'ai commencé avec des technologies natives avant de tomber amoureux du web.`
+          }
+        ]
       }
     }, {
       path: '/about',
@@ -29,6 +37,15 @@ const router =  new Router({
         default: About,
         footer: AppFooter
       },
+      meta: {
+        title: 'Victor Mendele - A propos',
+        metaTags: [
+          {
+            name: 'Description',
+            content: `Je suis actuellement étudiant en licence professionnelle métiers du numérique parcours Développeur Web / Designer Web à l'IUT de Mulhouse. J'ai commencé le développement avec Unity il y a quelques années, avant de m'intéresser au Web.`
+          }
+        ]
+      }
     }, {
       path: '/project',
       name: 'Project',
@@ -36,9 +53,18 @@ const router =  new Router({
         header: AppHeader,
         default: Project,
         footer: AppFooter
+      },
+      meta: {
+        title: 'Victor Mendele - Projet',
+        metaTags: [
+          {
+            name: 'Description',
+            content: 'Voici une sélection de différents projets sur lesquels j\'ai pu travailler'
+          }
+        ]
       }
     }, {
-      path: '/project/:projectId',
+      path: '/project/:slug',
       name: 'ProjectPage',
       components: {
         header: AppHeader,
@@ -47,13 +73,13 @@ const router =  new Router({
       },
       beforeEnter: (to, from, next) => {
         import('@/api/project.js').then(projectApi => {
-          projectApi.projectExists(to.params.projectId).then(() => {
+          projectApi.projectExists(to.params.slug).then(() => {
             next()
           }).catch(() => {
             next({ name: 'NotFound' })
           })
         })
-      }
+      },
     }, {
       path: '/error',
       name: 'NotFound',
@@ -66,8 +92,23 @@ const router =  new Router({
       path: '*',
       redirect: '/error'
     }
-  ],
+  ]
 })
 
+router.beforeEach((to, from, next) => {
+  if (to.meta.title !== undefined) {
+    document.title = to.meta.title
+  }
+
+  if (to.meta.metaTags !== undefined) {
+    to.meta.metaTags.forEach(m => {
+      let element = document.head.querySelector(`meta[name=${m.name}]`)
+      if (element !== undefined) {
+        element.setAttribute('content', m.content)
+      }
+    })
+  }
+  next()
+})
 
 export default router

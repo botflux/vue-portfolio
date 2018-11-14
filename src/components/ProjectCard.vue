@@ -6,7 +6,7 @@
     <div class="project-card-body">
       <h3>{{ projectTitle }}</h3>
       <p>{{ projectDescription }}</p>
-      <router-link :to="{ name: 'ProjectPage', params: { projectId: projectId } }" class="btn">En savoir plus</router-link>
+      <router-link :to="{ name: 'ProjectPage', params: { slug: projectSlug } }" class="btn">En savoir plus</router-link>
     </div>
   </article>
 </template>
@@ -19,7 +19,8 @@ export default {
     projectTitle: String,
     projectImgAlt: String,
     projectImg: String,
-    projectDescription: String
+    projectDescription: String,
+    projectSlug: String
   }
 }
 </script>

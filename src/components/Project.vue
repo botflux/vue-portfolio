@@ -1,9 +1,9 @@
 <template>
   <section class="project" ref="parent">
     <section-header title="Projets" subtitle="Projets Web / Logiciel"></section-header>
-    <p>Voici une sélection de projets sur les quels j'ai pu travailler.</p>
+    <p>Voici une sélection de projets sur lesquels j'ai pu travailler.</p>
     <project-holder class="project-holder" v-if="projectsHaveLoad">
-      <project-card v-for="project in projects" :project-id="project.id" :key="project.id" :project-img-alt="project.alt" :project-title="project.title" :project-description="project.description" :project-img="project.img"></project-card>
+      <project-card v-for="project in projects" :project-id="project.id" :key="project.id" :project-img-alt="project.alt" :project-title="project.title" :project-description="project.description" :project-slug="project.slug" :project-img="project.img"></project-card>
     </project-holder>
     <dot-loader class="centered" color="#0000ff" :loading="!projectsHaveLoad"></dot-loader>
   </section>

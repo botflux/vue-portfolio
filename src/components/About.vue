@@ -3,7 +3,7 @@
     <div class="about-content">
       <section-header title="A propos" subtitle="Développeur Web / Logiciel"></section-header>
       <div class="text-holder">
-        <p>Je suis actuellement étudiant en licence professionnelle métiers du numérique parcours Développeur Web / Designer Web à l'université de Haute-Alsace de Mulhouse. J'ai commencé le développement avec Unity il y a quelques années, avant de m'intéresser au Web.</p>
+        <p>Je suis actuellement étudiant en licence professionnelle métiers du numérique parcours Développeur Web / Designer Web à l'IUT de Mulhouse. J'ai commencé le développement avec Unity il y a quelques années, avant de m'intéresser au Web.</p>
         <p>Tout les aspects du développement d'applications m'intéresse qui ce soit le design, le développement ou encore l'expérience utilisateur. Mon objectif est de devenir développeur full-stack.</p>
       </div>
       <router-link to="/project" class="btn">Mes projets</router-link>
@@ -55,7 +55,7 @@ export default {
   name: 'About',
   components: {
     SectionHeader
-  }
+  },
 }
 </script>
 
