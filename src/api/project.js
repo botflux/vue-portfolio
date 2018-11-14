@@ -42,10 +42,10 @@ const getAllProjects = () => {
 
 const getProject = (slug) => {
   return new Promise((resolve, reject) => {
-    let project = null/*
+    let project = null
     getAllProjects().then(response => {
       project = response.find(project => project.slug == slug)
-    })*/
+    })
     if (project !== null) {
       resolve(project)
     } else {

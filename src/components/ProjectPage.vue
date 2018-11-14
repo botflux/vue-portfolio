@@ -15,7 +15,6 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'ProjectPage',
   created () {
-    console.log(this.$route.params.slug)
     this.findProject({ slug: this.$route.params.slug })
   },
   computed: mapGetters({

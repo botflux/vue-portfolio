@@ -95,7 +95,7 @@ const router =  new Router({
   ]
 })
 
-router.beforeEach((to, from, next) => {
+router.afterEach((to, from) => {
   if (to.meta.title !== undefined) {
     document.title = to.meta.title
   }
@@ -108,7 +108,6 @@ router.beforeEach((to, from, next) => {
       }
     })
   }
-  next()
 })
 
 export default router
