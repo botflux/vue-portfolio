@@ -84,6 +84,11 @@ export default {
 </script>
 
 <style>
+  a {
+    color: #00f;
+    text-decoration: none;
+  }
+
   .overflow-hidden {
     overflow: hidden;
   }
@@ -134,6 +139,30 @@ export default {
     letter-spacing: .4px;
     font-weight: 700;
     text-transform: uppercase;
+  }
+
+  .btn:not(.cta) {
+    overflow: hidden;
+
+    padding: 5px 0;
+    position: relative;
+
+    margin-right: auto;
+
+    transition: color .25s;
+  }
+
+  .btn:not(.cta)::after {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(45deg, #00f 0%, #00f 100%);
+    transition: height .25s, background .25s;
+
+    z-index: -1;
   }
 
   .btn.cta {
@@ -223,6 +252,15 @@ export default {
     .cta:hover {
       background-color: #00f;
       color: #fff;
+    }
+
+    .btn:not(.cta):hover {
+      color: #fff;
+    }
+
+    .btn:not(.cta):hover::after {
+      height: 100%;
+      background: linear-gradient(45deg, #00f 0%, #00e 100%);
     }
   }
 

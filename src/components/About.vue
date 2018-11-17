@@ -3,8 +3,8 @@
     <div class="about-content">
       <section-header title="A propos" subtitle="Développeur Web / Logiciel"></section-header>
       <div class="text-holder">
-        <p>Je suis actuellement étudiant en licence professionnelle métiers du numérique parcours Développeur Web / Designer Web à l'IUT de Mulhouse. J'ai commencé le développement avec Unity il y a quelques années, avant de m'intéresser au Web.</p>
-        <p>Tout les aspects du développement d'applications m'intéresse qui ce soit le design, le développement ou encore l'expérience utilisateur. Mon objectif est de devenir développeur full-stack.</p>
+        <p>Je suis actuellement étudiant en licence professionnelle <a href="http://www.iutmulhouse.uha.fr/formations-initiales-apprentissage/licences-professionnelles/webdesigner.html" rel="noopener" target="_blank">Développeur Web / Designer Web</a> à l'IUT de Mulhouse. J'ai commencé le développement avec Unity il y a quelques années, avant de m'intéresser au Web.</p>
+        <p>Tous les aspects du développement d'applications m'intéresse qui ce soit le design, le développement ou encore l'expérience utilisateur. Mon objectif est de devenir développeur full-stack.</p>
       </div>
       <router-link to="/project" class="btn">Mes projets</router-link>
     </div>
@@ -15,32 +15,32 @@
         <article class="card">
           <h4>Front-end</h4>
           <ul class="card-list">
-            <li class="card-list-item">HTML</li>
-            <li class="card-list-item">CSS</li>
-            <li class="card-list-item">JavaScript</li>
-            <li class="card-list-item">Vue.js</li>
-            <li class="card-list-item">SASS</li>
-            <li class="card-list-item">Webpack</li>
-            <li class="card-list-item">Twig</li>
+            <li class="card-list-item">HTML - 100%</li>
+            <li class="card-list-item">CSS - 90 %</li>
+            <li class="card-list-item">JavaScript - 70 %</li>
+            <li class="card-list-item">Vue.js - 70%</li>
+            <li class="card-list-item">SASS - 50%</li>
+            <li class="card-list-item">Webpack - 40%</li>
+            <li class="card-list-item">Twig - 90%</li>
           </ul>
         </article>
         <article class="card">
           <h4>Back-end</h4>
           <ul class="card-list">
-            <li class="card-list-item">PHP</li>
-            <li class="card-list-item">Symfony 4</li>
-            <li class="card-list-item">MySQL</li>
-            <li class="card-list-item">Node.js</li>
+            <li class="card-list-item">PHP - 90%</li>
+            <li class="card-list-item">Symfony 4 - 80%</li>
+            <li class="card-list-item">MySQL - 60%</li>
+            <li class="card-list-item">Node.js - 40%</li>
           </ul>
         </article>
         <article class="card">
           <h4>Logiciel</h4>
           <ul class="card-list">
-            <li class="card-list-item">C#</li>
-            <li class="card-list-item">C</li>
-            <li class="card-list-item">Java</li>
-            <li class="card-list-item">Android SDK</li>
-            <li class="card-list-item">.NET</li>
+            <li class="card-list-item">C# - 100%</li>
+            <li class="card-list-item">C++ - 50%</li>
+            <li class="card-list-item">Java - 60%</li>
+            <li class="card-list-item">Android SDK - 60%</li>
+            <li class="card-list-item">.NET - 90%</li>
           </ul>
         </article>
       </div>

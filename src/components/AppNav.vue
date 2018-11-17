@@ -1,5 +1,5 @@
 <template>
-  <nav class="app-nav" :class="{ 'nav-active': isShow }">
+  <nav class="app-nav" :class="{ 'nav-active': isShow }" ref="nav">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.576 23" class="menu" :class="{ menuWhite : isShow }" @click="toggle()">
       <g id="Groupe_2" data-name="Groupe 2" transform="translate(-328.424 -36)">
         <rect class="cls-1" width="37.576" height="2" transform="translate(328.424 36)"/>
