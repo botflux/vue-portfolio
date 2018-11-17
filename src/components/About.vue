@@ -11,39 +11,7 @@
 
     <div class="skill-content">
       <h3>Compétences</h3>
-      <div class="card-holder">
-        <article class="card">
-          <h4>Front-end</h4>
-          <ul class="card-list">
-            <li class="card-list-item">HTML - 100%</li>
-            <li class="card-list-item">CSS - 90 %</li>
-            <li class="card-list-item">JavaScript - 70 %</li>
-            <li class="card-list-item">Vue.js - 70%</li>
-            <li class="card-list-item">SASS - 50%</li>
-            <li class="card-list-item">Webpack - 40%</li>
-            <li class="card-list-item">Twig - 90%</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h4>Back-end</h4>
-          <ul class="card-list">
-            <li class="card-list-item">PHP - 90%</li>
-            <li class="card-list-item">Symfony 4 - 80%</li>
-            <li class="card-list-item">MySQL - 60%</li>
-            <li class="card-list-item">Node.js - 40%</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h4>Logiciel</h4>
-          <ul class="card-list">
-            <li class="card-list-item">C# - 100%</li>
-            <li class="card-list-item">C++ - 50%</li>
-            <li class="card-list-item">Java - 60%</li>
-            <li class="card-list-item">Android SDK - 60%</li>
-            <li class="card-list-item">.NET - 90%</li>
-          </ul>
-        </article>
-      </div>
+
     </div>
   </section>
 </template>
@@ -54,55 +22,46 @@ import SectionHeader from './SectionHeader'
 export default {
   name: 'About',
   components: {
-    SectionHeader
+    SectionHeader,
   },
+  data: () => {
+    return {
+      //{ HTML: 100, CSS: 90, Javascript: 70, 'Vue.js': 70, SASS: 50, Webpack: 40, Twig: 90 }
+      frontEndSkills: [
+        { name: 'HTML', value: 100 },
+        { name: 'CSS', value: 90},
+        { name: 'Twig', value: 90 },
+        { name: 'Javascript', value: 70 },
+        { name: 'Vue.js', value: 70 },
+        { name: 'Webpack', value: 40 }
+      ]
+    }
+  }
 }
 </script>
 
 <style scoped>
+
   .card {
-    padding: 32px;
     background-color: #fff;
-    box-shadow: 0 3px 5px 0 rgba(0,0,0,.2);
-
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-row-gap: 40px;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.2);
   }
 
-  .card-list {
-    margin: 0;
+  .reset-padding {
     padding: 0;
-
-    display: grid;
-    grid-row-gap: 10px;
-    align-content: start;
-  }
-
-  .card-list-item {
-    list-style: none;
-  }
-
-  .card-list-item::before {
-    content: "-";
-    margin-right: 30px;
-  }
-
-  .card-holder {
-    margin-top: 40px;
-
-    display: grid;
-    grid-row-gap: 20px;
   }
 
   .skill-content {
     margin-top: 160px;
+    display: grid;
+    grid-row-gap: 40px;
   }
 
   .text-holder {
     display: grid;
     grid-row-gap: 20px;
   }
+
   .about {
     padding-top: 200px;
     padding-bottom: 200px;
@@ -114,19 +73,8 @@ export default {
   }
 
   @media screen and (min-width: 600px) {
-    .card-holder {
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 20px;
-    }
-
     .skill-content {
       margin-top: 200px;
-    }
-  }
-
-  @media screen and (min-width: 1200px) {
-    .card-holder {
-      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 </style>
