@@ -66,6 +66,7 @@ export default {
     box-shadow: 0 3px 5px 0 rgba(0,0,0,.2);
 
     display: grid;
+    grid-template-rows: auto 1fr;
     grid-row-gap: 40px;
   }
 
@@ -75,6 +76,7 @@ export default {
 
     display: grid;
     grid-row-gap: 10px;
+    align-content: start;
   }
 
   .card-list-item {
